@@ -22,12 +22,13 @@ class Database:
         finally:
             conn.close()
 
-    def run(self, sql):
+    def run(self, sql, params=[]):
         conn = self.get_connection()
         try:
             cur = conn.cursor()
-            cur.execute(sql)
+            cur.execute(sql, params)
             conn.commit()
+            return cur.lastrowid
         except sqlite3.Error as e:
 	        print(e)
         finally:
