@@ -2,3 +2,5 @@
 .vscode
 .venv
 .DS_Store
+sqlite3.exe
+__pycache__/
